@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
    
 
-
+    [SeriliazeField] float climbSpeed = 3f;
     [SerializeField] float walkSpeed = 3f;
     [SerializeField] float jumppower = 5f;//power untuk melompat
     [SerializeField] bool onGround = false; //mekanik deteksi ground
@@ -115,6 +115,10 @@ public class PlayerController : MonoBehaviour
             onGround = true;
             doubleJumpReady = true; // Set double jump tersedia saat pemain menyentuh tanah
         }
+          if (col.tag == "wall")
+        {
+            wall = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D col)
@@ -125,6 +129,11 @@ public class PlayerController : MonoBehaviour
             onGround = false;
 
         }
+        if col.tag == "wall"
+            {
+            wall = false;
+        }
+
 
     }
 }
