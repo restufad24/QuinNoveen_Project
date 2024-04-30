@@ -7,29 +7,32 @@ public class PlayerController : MonoBehaviour
     Vector2 direction;
     float hAxis;
     float runSpeed = 6f; // Kecepatan berlari
-    float currentSpeed; // Kecepatan saat ini
-    float multipleJump = 1.5f;
 
+    /* float currentSpeed; // Kecepatan saat ini */
+
+    /* float multipleJump = 1.5f;
+ */
    
 
 
-    [SerializeField] float walkSpeed = 3f;
+    [SerializeField] float walkSpeed = 6f;
     [SerializeField] float jumppower = 5f;//power untuk melompat
     [SerializeField] bool onGround = false; //mekanik deteksi ground
-    [SerializeField] bool doubleJumpReady = false; //mekanik double jump
+
+   /*  [SerializeField] bool doubleJumpReady = false; //mekanik double jump */
    
 
     
 
     Rigidbody2D rb;
-    Collider2D groundCollider; // Collider untuk deteksi ground
+   /*  Collider2D groundCollider; // Collider untuk deteksi ground */
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentSpeed = walkSpeed;
+       /*  currentSpeed = walkSpeed; */
     }
 
     // Update is called once per frame
@@ -47,44 +50,18 @@ public class PlayerController : MonoBehaviour
         hAxis = Input.GetAxis("Horizontal");
         direction = new Vector2(hAxis, 0);
 
-        
-
-        //untuk berlari
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            //jika menekan shift
-            currentSpeed = runSpeed;
-
-        }
-        else
-        {
-            currentSpeed = walkSpeed;
-        }
-
+    
         // Menggerakkan pemain menggunakan vektor
-        transform.Translate(direction * Time.deltaTime * currentSpeed);
-
-
+        transform.Translate(direction * Time.deltaTime * walkSpeed);
 
     }
 
    void Jump()
     {
         //if spacebar pressed then apply velocity to yaxis
-        if (Input.GetKeyDown(KeyCode.Space) && (onGround || doubleJumpReady))
-        {
-           
-            if (onGround) //jika pemain berada di tanah maka:
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumppower);
-                doubleJumpReady = true; //set double jump ready jika tersedia
-            }
-
-            else if (doubleJumpReady) //ketika double jump tersedia
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumppower * multipleJump);
-                doubleJumpReady = false; //gunakan double jump dan atur kembali ke false
-            } 
+        if (Input.GetKeyDown(KeyCode.Space) && onGround == true)
+        {        
+                rb.velocity = new Vector2(rb.velocity.x, jumppower); 
         }
     }
 
@@ -113,7 +90,7 @@ public class PlayerController : MonoBehaviour
         if (col.tag == "Ground")
         {
             onGround = true;
-            doubleJumpReady = true; // Set double jump tersedia saat pemain menyentuh tanah
+           /*  doubleJumpReady = true; // Set double jump tersedia saat pemain menyentuh tanah */
         }
     }
 
