@@ -19,19 +19,19 @@ public class LadderMovement : MonoBehaviour
    
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag=="Player" && Input.GetKey(KeyCode.W))
+        if(other.tag=="Player" && Input.GetKey(KeyCode.UpArrow))
         {
             other.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, speed);
         }
 
-        else if(other.tag=="Player" && Input.GetKey(KeyCode.S))
+        else if(other.tag=="Player" && Input.GetKey(KeyCode.DownArrow))
         {
             other.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, -speed);
         }
 
         else
         {
-            other.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 1);
+            other.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0,0);
         }
 
     }
