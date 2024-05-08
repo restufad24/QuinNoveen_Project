@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,6 +28,15 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
    /*  Collider2D groundCollider; // Collider untuk deteksi ground */
 
+    public void EnableControls()
+    {
+        controls.Enable();
+    }
+    public void DisableControls()
+    {
+        controls.disable();
+        valueX = 0;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +53,7 @@ public class PlayerController : MonoBehaviour
         Facing();
     }
 
-    void movement()
+    public void movement()
     {
 
         // Mendapatkan input dari sumbu horizontal dan vertikal (WASD atau panah)
