@@ -23,7 +23,7 @@ public class LadderCooldown : MonoBehaviour
     void Update()
     {
         // Jika tombol Space ditekan dan cooldown belum aktif
-        if (Input.GetKeyDown(KeyCode.Space) && !isCooldownActive)
+        if (Input.GetKeyDown(KeyCode.L) && !isCooldownActive)
         {
             // Mulai cooldown
             StartCooldown();

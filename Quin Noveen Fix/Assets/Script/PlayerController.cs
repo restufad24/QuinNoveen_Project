@@ -10,28 +10,15 @@ public class PlayerController : MonoBehaviour
     float runSpeed = 6f; // Kecepatan berlari
    
 
-
+   
     [SerializeField] float walkSpeed = 6f;
     [SerializeField] float jumppower = 5f;//power untuk melompat
     [SerializeField] bool onGround = false; //mekanik deteksi ground
-
-   /*  [SerializeField] bool doubleJumpReady = false; //mekanik double jump */
    
-
-    
-
     Rigidbody2D rb;
-   /*  Collider2D groundCollider; // Collider untuk deteksi ground */
 
-   /*  public void EnableControls()
-    {
-        controls.Enable();
-    }
-    public void DisableControls()
-    {
-        controls.disable();
-        valueX = 0;
-    } */
+
+   
 
     // Start is called before the first frame update
     void Start()
