@@ -8,11 +8,6 @@ public class PlayerController : MonoBehaviour
     Vector2 direction;
     float hAxis;
     float runSpeed = 6f; // Kecepatan berlari
-
-    /* float currentSpeed; // Kecepatan saat ini */
-
-    /* float multipleJump = 1.5f;
- */
    
 
 
@@ -28,7 +23,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
    /*  Collider2D groundCollider; // Collider untuk deteksi ground */
 
-    public void EnableControls()
+   /*  public void EnableControls()
     {
         controls.Enable();
     }
@@ -36,7 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         controls.disable();
         valueX = 0;
-    }
+    } */
 
     // Start is called before the first frame update
     void Start()
